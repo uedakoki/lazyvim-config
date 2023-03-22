@@ -4,9 +4,24 @@
 
 local opt = vim.opt
 
+opt.completeopt = "menu,menuone,noselect"
 opt.autowrite = false
 opt.scrolloff = 3
 opt.relativenumber = false
 opt.shiftwidth = 4
 opt.tabstop = 4
-opt.wrap = false
+opt.wrap = true
+
+opt.fileformats = "unix"
+opt.linebreak = true
+opt.showbreak = [[﬌ ]]
+
+-- diagnostics setting
+vim.diagnostic.config({ virtual_text = false })
+vim.lsp.handlers["textDocument/publishDiagnostics"] =
+  vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, { virtual_text = false })
+
+-- you will likely want to reduce updatetime which affects cursorhold
+-- note: this setting is global and should be set only once
+vim.o.updatetime = 250
+vim.cmd([[autocmd cursorhold * lua vim.diagnostic.open_float(nil, {focus=false, scope="cursor"})]])
