@@ -15,6 +15,7 @@ opt.wrap = true
 opt.fileformats = "unix"
 opt.linebreak = true
 opt.showbreak = [[﬌ ]]
+opt.autochdir = true
 
 -- diagnostics setting
 vim.diagnostic.config({ virtual_text = false })

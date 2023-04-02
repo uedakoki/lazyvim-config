@@ -5,6 +5,7 @@ return {
     dependencies = {
       "nvim-telescope/telescope-file-browser.nvim",
       "nvim-telescope/telescope-frecency.nvim",
+      "desdic/agrolens.nvim",
     },
     opts = {
       defaults = {
@@ -57,7 +58,6 @@ return {
           },
         },
       })
-
       require("telescope").load_extension("file_browser")
     end,
   },
@@ -69,6 +69,24 @@ return {
     },
     config = function()
       require("telescope").load_extension("frecency")
+    end,
+  },
+
+  {
+    "desdic/agrolens.nvim",
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+      "nvim-treesitter/nvim-treesitter",
+    },
+    config = function()
+      require("telescope").extensions = {
+        agrolens = {
+          debug = false,
+          sametype = true,
+          includehiddenbuffers = false,
+        },
+      }
+      require("telescope").load_extension("agrolens")
     end,
   },
 }
