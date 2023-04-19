@@ -67,7 +67,6 @@ return {
         }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
       }),
       sources = cmp.config.sources({
-        { name = "jupynium", priority = 1000 },
         { name = "nvim_lsp" },
         { name = "luasnip" },
         { name = "buffer" },
@@ -75,11 +74,18 @@ return {
         { name = "latex_symbols" },
       }),
       formatting = {
-        format = function(_, item)
+        format = function(entry, item)
           local icons = require("lazyvim.config").icons.kinds
           if icons[item.kind] then
             item.kind = icons[item.kind] .. item.kind
           end
+          item.menu = ({
+            nvim_lsp = "[LSP]",
+            luasnip = "[LuaSnip]",
+            buffer = "[Buffer]",
+            path = "[Path]",
+            latex_symbols = "[Latex]",
+          })[entry.source.name]
           return item
         end,
       },

@@ -8,14 +8,15 @@ opt.completeopt = "menu,menuone,noselect"
 opt.autowrite = false
 opt.scrolloff = 3
 opt.relativenumber = false
-opt.shiftwidth = 4
-opt.tabstop = 4
+opt.shiftwidth = 2
+opt.tabstop = 2
 opt.wrap = true
 
 opt.fileformats = "unix"
 opt.linebreak = true
 opt.showbreak = [[﬌ ]]
 opt.autochdir = true
+opt.conceallevel = 0
 
 -- diagnostics setting
 vim.diagnostic.config({ virtual_text = false })

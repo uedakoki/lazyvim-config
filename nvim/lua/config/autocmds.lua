@@ -19,9 +19,9 @@ autocmd({ "TermOpen" }, {
 
 autocmd({ "FileType" }, {
   group = augroup("file_type"),
-  pattern = { "lua" },
+  pattern = { "python" },
   callback = function()
-    vim.bo.shiftwidth = 2
-    vim.bo.tabstop = 2
+    vim.bo.shiftwidth = 4
+    vim.bo.tabstop = 4
   end,
 })
