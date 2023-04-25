@@ -29,6 +29,7 @@ map({ "n", "i", "t", "v" }, "<C-h>", "<Left>", { desc = "Cursor Left" })
 map({ "n", "i", "t", "v" }, "<C-j>", "<Down>", { desc = "Cursor Down" })
 map({ "n", "i", "t", "v" }, "<C-k>", "<Up>", { desc = "Cursor Up" })
 map({ "n", "i", "t", "v" }, "<C-l>", "<Right>", { desc = "Cursor Right" })
+map({ "i" }, "<C-o>", "<Esc>o", { desc = "Add line" })
 
 -- window
 map({ "n", "t" }, "<C-W>\\", "<CMD> vsplit <CR>", { desc = "Split window right" })
@@ -44,3 +45,5 @@ else
   map({ "n", "t" }, "]b", "<cmd>bnext<cr>", { desc = "Next buffer" })
   map({ "n", "t" }, "[b", "<cmd>bprevious<cr>", { desc = "Prev buffer" })
 end
+map({ "n" }, "<leader>bc", "<cmd>close<cr>", { desc = "Close" })
+map({ "n" }, "<leader>bt", "<cmd>term<cr>", { desc = "Terminal" })

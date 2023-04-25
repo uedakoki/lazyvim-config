@@ -3,7 +3,7 @@ return {
   event = "BufReadPost",
   opts = {
     colorcolumn = "120",
-    disabled_filetypes = { "NvimTree", "lazy", "mason", "help" },
+    disabled_filetypes = { "NvimTree", "lazy", "mason", "alpha", "vimdoc" },
     scope = "file",
   },
 }

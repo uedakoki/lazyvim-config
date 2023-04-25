@@ -26,7 +26,7 @@ return {
     },
     keys = {
       { "<leader>bf", "<cmd>Telescope buffers<cr>", desc = "Buffers" },
-      { "<leader>ff", "<cmd>Telescope frecency<cr>", desc = "Find Files (frecency)" },
+      { "<leader>fR", "<cmd>Telescope frecency<cr>", desc = "Frecency" },
       { "<leader>fb", "<cmd>Telescope file_browser<cr>", desc = "File browser" },
     },
   },
