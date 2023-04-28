@@ -15,8 +15,11 @@ opt.wrap = true
 opt.fileformats = "unix"
 opt.linebreak = true
 opt.showbreak = [[﬌ ]]
+opt.breakindent = true
 opt.autochdir = true
 opt.conceallevel = 0
+opt.virtualedit:append({ "onemore", "block" })
+vim.o.listchars = [[trail:_,tab:▸-]]
 
 -- diagnostics setting
 vim.diagnostic.config({ virtual_text = false })

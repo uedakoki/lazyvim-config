@@ -19,6 +19,11 @@ return {
           base = "#000000",
         },
       },
+      custom_highlights = function(colors)
+        return {
+          VertSplit = { fg = colors.surface0 },
+        }
+      end,
       no_italic = true,
       integrations = {
         notify = true,

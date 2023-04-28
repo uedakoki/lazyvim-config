@@ -28,8 +28,8 @@ return {
   },
   keys = {
     { "<leader>rf", "<cmd>RunFile<CR>", desc = "Run the current file" },
-    { "<leader>rbf", "<cmd>RunFile term<CR>", desc = "Run the current file (term)" },
+    { "<leader>rF", "<cmd>RunFile term<CR>", desc = "Run the current file (term)" },
     { "<leader>rp", "<cmd>RunProject<CR>", desc = "Run the current project" },
-    { "<leader>rbp", "<cmd>RunProject term<CR>", desc = "Run the current project (term)" },
+    { "<leader>rP", "<cmd>RunProject term<CR>", desc = "Run the current project (term)" },
   },
 }

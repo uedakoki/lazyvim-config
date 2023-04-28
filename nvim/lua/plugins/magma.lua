@@ -15,9 +15,17 @@ return {
   build = "pip install --user jupyter_client",
   keys = {
     { "<LocalLeader>r", ":<C-u>MagmaEvaluateVisual<CR>", mode = { "x" } },
+    { "<C-o>", ":<C-u>MagmaEvaluateVisual<CR>", mode = { "x" } },
     { "<LocalLeader>rr", "<CMD>MagmaEvaluateLine<CR>" },
     {
       "<LocalLeader>rc",
+      function()
+        close_float()
+        vim.cmd("MagmaReevaluateCell")
+      end,
+    },
+    {
+      "<C-o>",
       function()
         close_float()
         vim.cmd("MagmaReevaluateCell")
