@@ -16,11 +16,19 @@ return {
     dashboard.section.buttons.val = {
       dashboard.button("r", " " .. " Recent files", ":Telescope oldfiles <CR>"),
       dashboard.button("t", " " .. " Terminal", ":cd $HOME <BAR> terminal <CR>"),
+      dashboard.button(
+        "c",
+        " " .. " Config",
+        ":Telescope file_browser path=$MYVIMRC/../lua/ <CR>"
+      ),
       dashboard.button("n", " " .. " New file", ":ene <BAR> startinsert <CR>"),
       dashboard.button("f", " " .. " Find file", ":Telescope find_files <CR>"),
       dashboard.button("g", " " .. " Find text", ":Telescope live_grep <CR>"),
-      dashboard.button("c", " " .. " Config", ":Telescope file_browser path=$MYVIMRC/../lua/ <CR>"),
-      dashboard.button("s", " " .. " Restore Session", [[:lua require("persistence").load() <cr>]]),
+      dashboard.button(
+        "s",
+        " " .. " Restore Session",
+        [[:lua require("persistence").load() <cr>]]
+      ),
       dashboard.button("l", "󰒲 " .. " Lazy", ":Lazy<CR>"),
       dashboard.button("q", " " .. " Quit", ":qa<CR>"),
     }
@@ -53,7 +61,11 @@ return {
       callback = function()
         local stats = require("lazy").stats()
         local ms = (math.floor(stats.startuptime * 100 + 0.5) / 100)
-        dashboard.section.footer.val = "⚡ Neovim loaded " .. stats.count .. " plugins in " .. ms .. "ms"
+        dashboard.section.footer.val = "⚡ Neovim loaded "
+          .. stats.count
+          .. " plugins in "
+          .. ms
+          .. "ms"
         pcall(vim.cmd.AlphaRedraw)
       end,
     })

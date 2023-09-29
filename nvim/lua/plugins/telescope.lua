@@ -19,14 +19,17 @@ return {
           prompt_position = "top",
         },
         sorting_strategy = "ascending",
+        path_display = {
+          shorten = { len = 2, exclude = { 1, -2, -1 } },
+        },
       },
       extensions = {
         file_browser = {},
       },
     },
     keys = {
-      { "<leader>bf", "<cmd>Telescope buffers<cr>", desc = "Buffers" },
-      { "<leader>fR", "<cmd>Telescope frecency<cr>", desc = "Frecency" },
+      { "<leader>bf", "<cmd>Telescope buffers<cr>",      desc = "Buffers" },
+      { "<leader>fR", "<cmd>Telescope frecency<cr>",     desc = "Frecency" },
       { "<leader>fb", "<cmd>Telescope file_browser<cr>", desc = "File browser" },
     },
   },
@@ -41,6 +44,10 @@ return {
       require("telescope").setup({
         extensions = {
           file_browser = {
+            hidden = true,
+            respect_gitignore = false,
+            prompt_path = true,
+            hijack_netrw = false,
             mappings = {
               ["n"] = {
                 ["c"] = fb_actions.create,

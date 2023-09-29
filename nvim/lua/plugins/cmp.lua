@@ -5,9 +5,11 @@ return {
   dependencies = {
     "hrsh7th/cmp-nvim-lsp",
     "hrsh7th/cmp-buffer",
-    "hrsh7th/cmp-path",
+    -- "hrsh7th/cmp-path",
+    "FelipeLema/cmp-async-path",
     "saadparwaiz1/cmp_luasnip",
     "kdheepak/cmp-latex-symbols",
+    "chrisgrieser/cmp-nerdfont"
   },
   opts = function()
     local cmp = require("cmp")
@@ -36,8 +38,8 @@ return {
         ["<Tab>"] = cmp.mapping(function(fallback)
           if cmp.visible() then
             cmp.select_next_item()
-          -- You could replace the expand_or_jumpable() calls with expand_or_locally_jumpable()
-          -- they way you will only jump inside the snippet region
+            -- You could replace the expand_or_jumpable() calls with expand_or_locally_jumpable()
+            -- they way you will only jump inside the snippet region
           elseif luasnip.expand_or_jumpable() then
             luasnip.expand_or_jump()
           elseif has_words_before() then
@@ -69,9 +71,18 @@ return {
       sources = cmp.config.sources({
         { name = "nvim_lsp" },
         { name = "luasnip" },
-        { name = "buffer" },
-        { name = "path" },
+        {
+          name = "buffer",
+          option = {
+            get_bufnrs = function()
+              return vim.api.nvim_list_bufs()
+            end
+          }
+        },
+        -- { name = "path" },
+        { name = "async_path" },
         { name = "latex_symbols" },
+        { name = 'nerdfont' },
       }),
       formatting = {
         format = function(entry, item)
@@ -84,7 +95,9 @@ return {
             luasnip = "[LuaSnip]",
             buffer = "[Buffer]",
             path = "[Path]",
+            async_path = "[Path]",
             latex_symbols = "[Latex]",
+            nerdfont = "[NerdFont]"
           })[entry.source.name]
           return item
         end,

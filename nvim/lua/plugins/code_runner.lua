@@ -24,12 +24,18 @@ return {
         [[(sleep 1 && open http://localhost:8080 -a /Applications/Google\ Chrome.app)& ;]],
         "php -S localhost:8080",
       },
+      mermaid = {
+        "OUTFILE=/tmp/code_runner/$fileNameWithoutExt.pdf; ",
+        "mkdir -p $(dirname $OUTFILE) &&",
+        "mmdc -i $file -o $OUTFILE &&",
+        "open $OUTFILE",
+      },
     },
   },
   keys = {
     { "<leader>rf", "<cmd>RunFile<CR>", desc = "Run the current file" },
-    { "<leader>rbf", "<cmd>RunFile term<CR>", desc = "Run the current file (term)" },
+    { "<leader>rF", "<cmd>RunFile term<CR>", desc = "Run the current file (term)" },
     { "<leader>rp", "<cmd>RunProject<CR>", desc = "Run the current project" },
-    { "<leader>rbp", "<cmd>RunProject term<CR>", desc = "Run the current project (term)" },
+    { "<leader>rP", "<cmd>RunProject term<CR>", desc = "Run the current project (term)" },
   },
 }

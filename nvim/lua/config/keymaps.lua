@@ -15,6 +15,9 @@ local function map(mode, lhs, rhs, opts)
   end
 end
 
+map("n", "x", '"_x')
+map("v", "x", '"_x')
+
 map("v", "y", "y`>", { desc = "yank" })
 map("i", "　", " ", { desc = "space" })
 map("n", ";", ":", { desc = "command" })

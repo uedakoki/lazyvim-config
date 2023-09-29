@@ -17,8 +17,12 @@ return {
     -- vim.g.papyrus_latex_engine = "lualatex"
     -- vim.g.papyrus_pandoc_args = "-V documentclass=bxjsarticle " .. "-V classoption=pandoc "
     vim.g.papyrus_latex_engine = "xelatex"
-    vim.g.papyrus_pandoc_args = '--template "eisvogel" ' .. "--listings " .. '-V CJKmainfont="HiraginoSans-W4"'
+    vim.g.papyrus_pandoc_args = '--template "eisvogel" '
+      .. "--listings "
+      .. '-V CJKmainfont="HiraginoSans-W4"'
+    -- vim.g.papyrus_output_path = vim.fn.expand("$TMPDIR/papyrus/")
     vim.g.papyrus_output_path = "/tmp/papyrus/"
+    vim.fn.mkdir(vim.g.papyrus_output_path, "p")
 
     map("n", "<leader>pc", ":PapyrusCompile<CR>", { desc = "Compile the md file." })
     map("n", "<leader>pa", ":PapyrusAutoCompile<CR>", { desc = "Set auto compile the md file." })

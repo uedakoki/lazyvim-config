@@ -15,13 +15,25 @@ opt.wrap = true
 opt.fileformats = "unix"
 opt.linebreak = true
 opt.showbreak = [[﬌ ]]
+opt.breakindent = true
 opt.autochdir = true
 opt.conceallevel = 0
+opt.virtualedit:append({ "onemore", "block" })
+vim.o.listchars = [[trail:_,tab:▸-]]
 
 -- diagnostics setting
-vim.diagnostic.config({ virtual_text = false })
-vim.lsp.handlers["textDocument/publishDiagnostics"] =
-  vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, { virtual_text = false })
+-- vim.diagnostic.config({ virtual_text = false })
+-- vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
+--   vim.lsp.diagnostic.on_publish_diagnostics,
+--   {
+--     virtual_text = false,
+--     float = {
+--       format = function(diagnostic)
+--         return string.format("%s (%s: %s)", diagnostic.message, diagnostic.source, diagnostic.code)
+--       end,
+--     },
+--   }
+-- )
 
 -- you will likely want to reduce updatetime which affects cursorhold
 -- note: this setting is global and should be set only once
