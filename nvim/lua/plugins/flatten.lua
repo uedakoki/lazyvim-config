@@ -7,13 +7,14 @@ return {
     require("flatten").setup(
       {
         window = {
-          open = "alternate",
+          open = "current",
           diff = "vsplit",
           focus = "first",
         },
         one_per = {
-          wezterm = false,
+          wezterm = true,
         },
+        pipe_path = require("flatten").default_pipe_path
       }
     )
   end
