@@ -9,7 +9,8 @@ return {
     "FelipeLema/cmp-async-path",
     "saadparwaiz1/cmp_luasnip",
     "kdheepak/cmp-latex-symbols",
-    "chrisgrieser/cmp-nerdfont"
+    "chrisgrieser/cmp-nerdfont",
+    "zbirenbaum/copilot-cmp",
   },
   opts = function()
     local cmp = require("cmp")
@@ -18,7 +19,9 @@ return {
     local has_words_before = function()
       unpack = unpack or table.unpack
       local line, col = unpack(vim.api.nvim_win_get_cursor(0))
-      return col ~= 0 and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match("%s") == nil
+      return col ~= 0
+        and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match("%s")
+          == nil
     end
 
     return {
@@ -76,13 +79,14 @@ return {
           option = {
             get_bufnrs = function()
               return vim.api.nvim_list_bufs()
-            end
-          }
+            end,
+          },
         },
         -- { name = "path" },
         { name = "async_path" },
         { name = "latex_symbols" },
-        { name = 'nerdfont' },
+        { name = "nerdfont" },
+        { name = "copilot" },
       }),
       formatting = {
         format = function(entry, item)
@@ -97,7 +101,8 @@ return {
             path = "[Path]",
             async_path = "[Path]",
             latex_symbols = "[Latex]",
-            nerdfont = "[NerdFont]"
+            nerdfont = "[NerdFont]",
+            copilot = "[Copilot]",
           })[entry.source.name]
           return item
         end,

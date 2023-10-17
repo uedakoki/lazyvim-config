@@ -21,6 +21,7 @@ return {
       ),
       dashboard.button("t", " " .. " Terminal", ":cd $HOME <BAR> terminal <CR>"),
       dashboard.button("r", " " .. " Recent files", ":Telescope oldfiles <CR>"),
+      dashboard.button("p", " " .. " Projects", ":Telescope projects <CR>"),
       dashboard.button(
         "c",
         " " .. " Config",
